@@ -1,0 +1,19 @@
+
+.menuContainer {
+  position: relative;
+  flex-direction: column;
+}
+
+.menu {
+  margin: 0;
+  display: flex;
+}
+
+.menuItem {
+  padding: 15px;
+  cursor: pointer;
+}
+
+.menuItemSelected {
+  background-color: #fff;
+}

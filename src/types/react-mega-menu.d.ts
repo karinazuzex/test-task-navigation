@@ -1,33 +1,30 @@
-/// <reference types="react-scripts" />
-
 import * as React from "react";
 
-declare module 'react-mega-menu'
 /**
  * TYPES
  */
-declare type StyleConfig = {
+export declare type StyleConfig = {
     containerProps?: React.HTMLAttributes<HTMLDivElement>;
     contentProps?: React.HTMLAttributes<HTMLDivElement>;
     menuItemProps?: React.HTMLAttributes<HTMLLIElement>;
     menuItemSelectedProps?: React.HTMLAttributes<HTMLLIElement>;
     menuProps?: React.HTMLAttributes<HTMLUListElement>;
 };
-declare type Directions = "LEFT" | "RIGHT";
-declare type Props = {
+export declare type Directions = "LEFT" | "RIGHT";
+export declare type Props = {
     tolerance?: number;
     direction?: Directions;
     data: Section[];
     styleConfig: StyleConfig;
     onExit?: () => void;
 };
-declare type State = {
+export declare type State = {
     activeRow: number;
     mouseLocs: MouseCoords[];
     lastDelayLoc?: MouseCoords;
     timeoutID?: number;
 };
-declare type menuItemProps = {
+export declare type menuItemProps = {
     props?: React.HTMLAttributes<HTMLLIElement>;
     selectedProps?: React.HTMLAttributes<HTMLLIElement>;
     hasData?: boolean;
@@ -35,12 +32,12 @@ declare type menuItemProps = {
     label: string;
     mouseEntered?: () => void;
 };
-declare type Section = {
+export declare type Section = {
     label: string;
     key: string | number;
     items: React.ReactNode;
 };
-declare type MouseCoords = {
+export declare type MouseCoords = {
     x: number;
     y: number;
 };

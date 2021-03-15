@@ -1,0 +1,21 @@
+.menu {
+  background-color: #e3e3e3;
+  padding: 15px 0 15px 15px;
+  min-width: 300px;
+  margin: 0;
+}
+
+.menuItem {
+  padding: 15px;
+  cursor: pointer;
+}
+
+.menuItemSelected {
+  background-color: #fff;
+}
+
+.menuContent {
+  border-top: 4px solid #464777;
+  background-color: #fff;
+  min-width: 500px;
+}

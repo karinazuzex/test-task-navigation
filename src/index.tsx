@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider, teamsTheme } from '@fluentui/react-northstar'
+import { MenuContextProvider } from './contexts/menuList';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider theme={teamsTheme}>
+      <BrowserRouter>
+        <MenuContextProvider>
+          <App />
+        </MenuContextProvider>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

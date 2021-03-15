@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  width: 100%;
+  padding: 15px;
+}
+
+.link {
+  position: relative;
+}
+
+.link a {
+  padding: 15px 10px;
+}
+
+.link a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  background-color: blueviolet;
+  height: 2px;
+}
