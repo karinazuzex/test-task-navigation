@@ -34,7 +34,11 @@ export const MenuContextProvider: React.FC<unknown> = ({ children }) => {
   }, []);
 
   const addNewItem = useCallback((item: Omit<MainMenuDataItem, 'key'>) => {
-    setItems(prev => [...prev, { ...item, key: prev.length + 1 }]);
+    setItems(prev => {
+      const newItems = [...prev, { ...item, key: prev.length + 1 }];
+      setMenuItems(newItems);
+      return newItems;
+    });
   }, []);
 
   const menuContextValue: MenuContextType = useMemo(() => ({
