@@ -5,6 +5,7 @@ import { getMenuItems, setMenuItems } from '../helpers/menuItems';
 export type MenuContextType = {
   items: MainMenuDataItem[];
   updateItems: (items: MainMenuDataItem[]) => void;
+  addNewItem: (item: Omit<MainMenuDataItem, 'key'>) => void;
 }
 
 export const MenuContext = createContext<MenuContextType | undefined>(undefined);
@@ -32,11 +33,15 @@ export const MenuContextProvider: React.FC<unknown> = ({ children }) => {
     setMenuItems(items);
   }, []);
 
-  const menuContextValue = useMemo(() => ({
+  const addNewItem = useCallback((item: Omit<MainMenuDataItem, 'key'>) => {
+    setItems(prev => [...prev, { ...item, key: prev.length + 1 }]);
+  }, []);
+
+  const menuContextValue: MenuContextType = useMemo(() => ({
     updateItems,
+    addNewItem,
     items: items,
-    // TODO: write functions for update, delete items
-  }), [items, updateItems]);
+  }), [items, updateItems, addNewItem]);
 
   return (
     <MenuContext.Provider value={menuContextValue}>

@@ -1,18 +1,11 @@
-import React, { useState } from 'react'
-import { Button, Header, Dialog, Input, } from '@fluentui/react-northstar'
+import React from 'react'
+import { Header } from '@fluentui/react-northstar'
 import LinksTree from './LinksTree/LinksTree';
-import { useMenuContext } from '../../contexts/menuList';
+import AddMenuItemModal from './AddMenuItemModal/AddMenuItemModal';
 
 import styles from './Settings.module.css'
 
 const Settings = () => {
-  const { items } = useMenuContext();
-
-  const formAddNewMenu = (
-    <div className={styles.formContainer}>
-
-    </div>
-  );
 
   return (
     <div className={styles.page}>
@@ -28,21 +21,18 @@ const Settings = () => {
         as="h3"
         content="Add navigation entries"
         description={{
-          content: 'You can add entries here',
+          content: 'Here\'s an example of how a section can be used to group inputs',
           as: 'span',
         }}
       />
 
       <div className={styles.control}>
-        <Dialog
-          content={
-            <div>test</div>
-          }
-          trigger={ <Button primary content="Add entry" /> }
-        />
+        <AddMenuItemModal />
       </div>
 
-      <LinksTree data={items} />
+      <div className={styles.linksWrapper}>
+        <LinksTree />
+      </div>
     </div>
   )
 }

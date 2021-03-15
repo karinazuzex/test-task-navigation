@@ -1,0 +1,22 @@
+.secondLvl {
+  padding: 15px;
+  background-color: #e0e0e0;
+  margin-bottom: 15px;
+}
+
+.lastLvl {
+  padding: 15px;
+  background-color: #d6d6d6;
+  margin-bottom: 15px;
+}
+
+.form :global(.ui-form__input),
+.form :global(.ui-form__button) {
+  margin-bottom: 15px;
+}
+
+.linkBlock {
+  margin: 5px;
+  padding: 10px;
+  background-color: #cccccc;
+}

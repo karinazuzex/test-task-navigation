@@ -7,7 +7,7 @@ type MenuContentProps = {
   data: MenuContentDataItem[];
 }
 
-type MenuLink = {
+export type MenuLink = {
   label: string;
   href: string;
 }
