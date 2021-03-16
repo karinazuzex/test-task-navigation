@@ -102,7 +102,6 @@ const AddLinkForm: React.FC<AddLinkFormProps> = ({ onSubmit }) => {
   }
 
   const onSubmitForm = () => {
-    console.log(menuItem)
     addNewItem(menuItem);
     onSubmit();
   }
@@ -115,7 +114,7 @@ const AddLinkForm: React.FC<AddLinkFormProps> = ({ onSubmit }) => {
         <div className={styles.firstLvl}>
           <FormInput
             value={label}
-            onChange={ ({ target: { value } }) => setMenuItem(prev => ({ ...prev, label: value })) }
+            onChange={ ({ target }) => setMenuItem(prev => ({ ...prev, label: (target as any).value })) }
             label="Top lvl label"
           />
           {items.map(({ label, items }, index) => (
@@ -123,14 +122,14 @@ const AddLinkForm: React.FC<AddLinkFormProps> = ({ onSubmit }) => {
               <FormInput
                 value={label}
                 label="Second lvl label"
-                onChange={ ({ target: { value } }) => onChangeSecondLvlItem(value, index) }
+                onChange={ ({ target }) => onChangeSecondLvlItem((target as any).value, index) }
               />
               {items.map(({ title, links }, idx) => (
                 <div className={styles.lastLvl} key={idx}>
                   <FormInput
                     value={title}
                     label="last lvl title"
-                    onChange={ ({ target: { value } }) => onChangeLastLvlItem(value, index, idx) }
+                    onChange={ ({ target }) => onChangeLastLvlItem((target as any).value, index, idx) }
                   />
                   {links.map(({ label, href }, linkIndex) => (
                     <div className={styles.linkBlock} key={linkIndex}>
@@ -138,9 +137,9 @@ const AddLinkForm: React.FC<AddLinkFormProps> = ({ onSubmit }) => {
                         value={label}
                         label="link label"
                         onChange={
-                          ({ target: { value } }) => onChangeLinkOnLastLvlItem(
+                          ({ target }) => onChangeLinkOnLastLvlItem(
                             'label',
-                            value,
+                            (target as any).value,
                             index,
                             idx,
                             linkIndex
@@ -151,9 +150,9 @@ const AddLinkForm: React.FC<AddLinkFormProps> = ({ onSubmit }) => {
                         value={href}
                         label="link href"
                         onChange={
-                          ({ target: { value } }) => onChangeLinkOnLastLvlItem(
+                          ({ target }) => onChangeLinkOnLastLvlItem(
                             'href',
-                            value,
+                            (target as any).value,
                             index,
                             idx,
                             linkIndex
